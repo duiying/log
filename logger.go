@@ -6,10 +6,20 @@ import (
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"os"
+	"sync"
 )
 
 type Logger struct {
 	*zap.Logger
+}
+
+var once sync.Once
+var DefaultLogger *Logger
+
+func init() {
+	once.Do(func() {
+		DefaultLogger = NewLogger(DefaultConfig)
+	})
 }
 
 func NewLogger(cfg *Config) *Logger {

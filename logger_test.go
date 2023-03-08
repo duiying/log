@@ -10,6 +10,7 @@ func TestLog(t *testing.T) {
 	TestWith(t)
 	Log.Info("infoMsg")
 	TestTrace(t)
+	TestDefaultLogger(t)
 }
 
 func TestTrace(t *testing.T) {
@@ -18,4 +19,8 @@ func TestTrace(t *testing.T) {
 
 func TestWith(t *testing.T) {
 	Log.With("uid", 2).Info("withMsg", "key3", "val3")
+}
+
+func TestDefaultLogger(t *testing.T) {
+	DefaultLogger.With("defaultKey", "defaultVal").Info("this is default logger")
 }
