@@ -140,3 +140,25 @@ func (l *Logger) Panic(msg string, keysAndValues ...any) {
 func (l *Logger) Fatal(msg string, keysAndValues ...any) {
 	l.Logger.Fatal(msg, l.encodeKeyValues(keysAndValues)...)
 }
+
+func Debug(msg string, keysAndValues ...any) {
+	DefaultLogger.Debug(msg, keysAndValues...)
+}
+func Info(msg string, keysAndValues ...any) {
+	DefaultLogger.Info(msg, keysAndValues...)
+}
+func Warn(msg string, keysAndValues ...any) {
+	DefaultLogger.Warn(msg, keysAndValues...)
+}
+func Error(msg string, keysAndValues ...any) {
+	DefaultLogger.Error(msg, keysAndValues...)
+}
+func DPanic(msg string, keysAndValues ...any) {
+	DefaultLogger.DPanic(msg, keysAndValues...)
+}
+func Panic(msg string, keysAndValues ...any) {
+	DefaultLogger.Panic(msg, keysAndValues...)
+}
+func Fatal(msg string, keysAndValues ...any) {
+	DefaultLogger.Fatal(msg, keysAndValues...)
+}
